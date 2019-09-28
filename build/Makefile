@@ -52,11 +52,15 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../src/main.cpp \
 		../src/loginwindow.cpp \
-		../src/registrationwindow.cpp moc_registrationwindow.cpp \
+		../src/registrationwindow.cpp \
+		../src/sopmclient.cpp \
+		../src/requestformer.cpp moc_registrationwindow.cpp \
 		moc_loginwindow.cpp
 OBJECTS       = main.o \
 		loginwindow.o \
 		registrationwindow.o \
+		sopmclient.o \
+		requestformer.o \
 		moc_registrationwindow.o \
 		moc_loginwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -133,9 +137,14 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../../SoPM.pro ../src/registrationwindow.h \
-		../src/loginwindow.h ../src/main.cpp \
+		../src/loginwindow.h \
+		../src/sopmclient.h \
+		../src/requestformer.h \
+		../src/json.hpp ../src/main.cpp \
 		../src/loginwindow.cpp \
-		../src/registrationwindow.cpp
+		../src/registrationwindow.cpp \
+		../src/sopmclient.cpp \
+		../src/requestformer.cpp
 QMAKE_TARGET  = SoPM
 DESTDIR       = 
 TARGET        = SoPM
@@ -317,8 +326,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/registrationwindow.h ../src/loginwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/main.cpp ../src/loginwindow.cpp ../src/registrationwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/registrationwindow.h ../src/loginwindow.h ../src/sopmclient.h ../src/requestformer.h ../src/json.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/main.cpp ../src/loginwindow.cpp ../src/registrationwindow.cpp ../src/sopmclient.cpp ../src/requestformer.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../forms/loginwindow.ui ../forms/registrationwindow.ui $(DISTDIR)/
 
 
@@ -387,18 +396,32 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
-main.o: ../src/main.cpp ../src/loginwindow.h
+main.o: ../src/main.cpp ../src/loginwindow.h \
+		../src/requestformer.h \
+		../src/sopmclient.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../src/main.cpp
 
 loginwindow.o: ../src/loginwindow.cpp ../src/loginwindow.h \
 		../src/registrationwindow.h \
-		ui_loginwindow.h
+		ui_loginwindow.h \
+		../src/requestformer.h \
+		../src/sopmclient.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o loginwindow.o ../src/loginwindow.cpp
 
 registrationwindow.o: ../src/registrationwindow.cpp ../src/registrationwindow.h \
 		../src/loginwindow.h \
-		ui_registrationwindow.h
+		ui_registrationwindow.h \
+		../src/requestformer.h \
+		../src/sopmclient.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o registrationwindow.o ../src/registrationwindow.cpp
+
+sopmclient.o: ../src/sopmclient.cpp ../src/sopmclient.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sopmclient.o ../src/sopmclient.cpp
+
+requestformer.o: ../src/requestformer.cpp ../src/requestformer.h \
+		../src/sopmclient.h \
+		../src/json.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o requestformer.o ../src/requestformer.cpp
 
 moc_registrationwindow.o: moc_registrationwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_registrationwindow.o moc_registrationwindow.cpp

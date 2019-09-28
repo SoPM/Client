@@ -26,47 +26,54 @@ class Ui_RegistrationWindow
 {
 public:
     QWidget *centralwidget;
-    QPushButton *pushButton;
+    QPushButton *registration_button;
     QLabel *label;
     QLineEdit *lineEdit;
     QLabel *label_2;
     QLineEdit *lineEdit_2;
+    QPushButton *back_button;
 
-    void setupUi(QDialog *registrationwindow)
+    void setupUi(QDialog *RegistrationWindow)
     {
-        if (registrationwindow->objectName().isEmpty())
-            registrationwindow->setObjectName(QStringLiteral("registrationwindow"));
-        registrationwindow->resize(800, 600);
-        centralwidget = new QWidget(registrationwindow);
+        if (RegistrationWindow->objectName().isEmpty())
+            RegistrationWindow->setObjectName(QStringLiteral("RegistrationWindow"));
+        RegistrationWindow->resize(700, 500);
+        centralwidget = new QWidget(RegistrationWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         centralwidget->setGeometry(QRect(0, 0, 771, 481));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(280, 290, 211, 61));
+        registration_button = new QPushButton(centralwidget);
+        registration_button->setObjectName(QStringLiteral("registration_button"));
+        registration_button->setGeometry(QRect(230, 290, 211, 61));
         label = new QLabel(centralwidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(320, 130, 141, 21));
+        label->setGeometry(QRect(210, 140, 251, 21));
+        label->setAlignment(Qt::AlignCenter);
         lineEdit = new QLineEdit(centralwidget);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(260, 160, 251, 29));
+        lineEdit->setGeometry(QRect(210, 160, 251, 29));
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(340, 210, 80, 21));
+        label_2->setGeometry(QRect(210, 210, 251, 21));
+        label_2->setAlignment(Qt::AlignCenter);
         lineEdit_2 = new QLineEdit(centralwidget);
         lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(260, 230, 251, 29));
+        lineEdit_2->setGeometry(QRect(210, 230, 251, 29));
+        back_button = new QPushButton(centralwidget);
+        back_button->setObjectName(QStringLiteral("back_button"));
+        back_button->setGeometry(QRect(30, 30, 106, 30));
 
-        retranslateUi(registrationwindow);
+        retranslateUi(RegistrationWindow);
 
-        QMetaObject::connectSlotsByName(registrationwindow);
+        QMetaObject::connectSlotsByName(RegistrationWindow);
     } // setupUi
 
-    void retranslateUi(QDialog *registrationwindow)
+    void retranslateUi(QDialog *RegistrationWindow)
     {
-        registrationwindow->setWindowTitle(QApplication::translate("RegistrationWindow", "MainWindow", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("RegistrationWindow", "Registration", Q_NULLPTR));
+        RegistrationWindow->setWindowTitle(QApplication::translate("RegistrationWindow", "MainWindow", Q_NULLPTR));
+        registration_button->setText(QApplication::translate("RegistrationWindow", "Registration", Q_NULLPTR));
         label->setText(QApplication::translate("RegistrationWindow", "Employee code", Q_NULLPTR));
         label_2->setText(QApplication::translate("RegistrationWindow", "Password", Q_NULLPTR));
+        back_button->setText(QApplication::translate("RegistrationWindow", "Back", Q_NULLPTR));
     } // retranslateUi
 
 };

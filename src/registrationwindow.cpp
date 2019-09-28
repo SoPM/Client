@@ -1,8 +1,10 @@
+#include <QDesktopWidget>
+#include <QMessageBox>
+
 #include "registrationwindow.h"
 #include "loginwindow.h"
 #include "ui_registrationwindow.h"
-#include <QDesktopWidget>
-#include <QMessageBox>
+#include "requestformer.h"
 
 RegistrationWindow::RegistrationWindow(QWidget *parent) :
     QDialog(parent),
@@ -22,4 +24,19 @@ RegistrationWindow::RegistrationWindow(QWidget *parent) :
 RegistrationWindow::~RegistrationWindow()
 {
     delete ui;
+}
+
+void RegistrationWindow::on_registration_button_clicked()
+{
+    try {
+        RequestFormer::registrate("1", "1");
+    }
+    catch (char const *error) {
+        QMessageBox::critical(this, "Error", error);
+    }
+}
+
+void RegistrationWindow::on_back_button_clicked()
+{
+    this->close();
 }

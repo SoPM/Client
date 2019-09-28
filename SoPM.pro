@@ -26,11 +26,16 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         src/main.cpp \
     src/loginwindow.cpp \
-    src/registrationwindow.cpp
+    src/registrationwindow.cpp \
+    src/sopmclient.cpp \
+    src/requestformer.cpp
 
 HEADERS += \
     src/registrationwindow.h \
-    src/loginwindow.h
+    src/loginwindow.h \
+    src/sopmclient.h \
+    src/requestformer.h \
+    src/json.hpp
 
 FORMS += \
     forms/loginwindow.ui \
