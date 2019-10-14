@@ -1,13 +1,12 @@
 package sample;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 import java.io.*;
 import java.net.Socket;
-//192.168.0.100
 
 public class SoPMClient {
+    private static final String IP_ADDRESS = "localhost";
+    private static final int PORT = 5000;
+    
     private static boolean isConnected_;
     private static Socket socket_;
 
@@ -17,7 +16,7 @@ public class SoPMClient {
 
     public static void connectToServer() throws IOException {
         try {
-            socket_ = new Socket("localhost", 5000);
+            socket_ = new Socket(IP_ADDRESS,  PORT);
             isConnected_ = true;
         } catch (IOException e) {
             throw e;
