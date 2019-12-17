@@ -14,7 +14,7 @@
       <Pane prefHeight="33.0" prefWidth="1200.0" style="-fx-background-color: #7fab5e;" />
       <Pane layoutY="33.0" prefHeight="767.0" prefWidth="274.0" style="-fx-background-color: pink;">
          <children>
-            <TableView prefHeight="767.0" prefWidth="274.0" style="-fx-font-family: Roboto;">
+            <TableView id="projects" fx:id="projects" prefHeight="767.0" prefWidth="274.0" style="-fx-font-family: Roboto;">
               <columns>
                 <TableColumn prefWidth="273.0" style="-fx-font-family: roboto;" text="Projects" />
               </columns>
@@ -25,26 +25,26 @@
          <children>
             <TabPane prefHeight="767.0" prefWidth="926.0" tabClosingPolicy="UNAVAILABLE">
                <tabs>
-                  <Tab style="-fx-background-color: #fafafa; -fx-border-radius: 5; -fx-background-radius: 5; -fx-font-family: roboto;" text="Func 1">
+                  <Tab id="func1" fx:id="func1" style="-fx-background-color: #fafafa; -fx-border-radius: 5; -fx-background-radius: 5; -fx-font-family: roboto;" text="Func 1">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="684.0" prefWidth="926.0">
                            <children>
-                              <TableView layoutX="14.0" layoutY="14.0" prefHeight="605.0" prefWidth="897.0" style="-fx-background-color: #fafafa80; -fx-border-color: #777777;">
+                              <TableView fx:id="table_for_jenya" layoutX="14.0" layoutY="14.0" prefHeight="605.0" prefWidth="897.0" style="-fx-background-color: #fafafa80; -fx-border-color: #777777;" styleClass="table_for_jenya">
                                  <columns>
                                     <TableColumn prefWidth="449.0" text="C1" />
                                     <TableColumn prefWidth="447.0" text="C2" />
                                  </columns>
                               </TableView>
-                              <Button layoutX="412.0" layoutY="649.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="103.0" style="-fx-text-fill: black; -fx-background-color: #fafafa; -fx-background-radius: 15; -fx-border-radius: 15;" text="Enter" />
+                              <Button id="enter_button" fx:id="enter_button" layoutX="412.0" layoutY="649.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="103.0" style="-fx-text-fill: black; -fx-background-color: #fafafa; -fx-background-radius: 15; -fx-border-radius: 15;" text="Enter" />
                            </children>
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab style="-fx-background-color: #fafafa; -fx-background-radius: 5; -fx-font-family: roboto;" text="Func 2">
+                  <Tab id="func2" fx:id="func2" style="-fx-background-color: #fafafa; -fx-background-radius: 5; -fx-font-family: roboto;" text="Func 2">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TableView prefHeight="740.0" prefWidth="926.0">
+                              <TableView id="table_for_trello" fx:id="table_for_trello" prefHeight="740.0" prefWidth="926.0">
                                 <columns>
                                   <TableColumn prefWidth="75.0" text="C1" />
                                   <TableColumn prefWidth="75.0" text="C2" />
